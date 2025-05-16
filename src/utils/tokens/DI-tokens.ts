@@ -1,0 +1,3 @@
+export const DI_TOKENS = {
+  WEATHER_API_CLIENT: Symbol('WEATHER_API_CLIENT'),
+};
