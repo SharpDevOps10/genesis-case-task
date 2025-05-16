@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
-import { IWeatherApiClient } from './interfaces/weather-api-client.interface';
+import { IWeatherApiClient } from '@weather-api/interfaces/weather-api-client.interface';
 import { plainToInstance } from 'class-transformer';
-import { WeatherApiResponse } from './responses/weather-api.response';
+import { WeatherApiResponse } from '@weather-api/responses/weather-api.response';
 
 @Injectable()
 export class WeatherApiClient implements IWeatherApiClient {

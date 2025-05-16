@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { IWeatherApiClient } from '../weather-api/interfaces/weather-api-client.interface';
-import { DI_TOKENS } from '../../utils/tokens/DI-tokens';
+import { IWeatherApiClient } from '@weather-api/interfaces/weather-api-client.interface';
+import { DI_TOKENS } from '@utils/tokens/DI-tokens';
 import { GetWeatherResponse } from './responses/get-weather.response';
 
 @Injectable()
