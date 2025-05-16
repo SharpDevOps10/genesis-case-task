@@ -1,0 +1,21 @@
+import { Injectable, Inject } from '@nestjs/common';
+import { IWeatherApiClient } from '../weather-api/interfaces/weather-api-client.interface';
+import { DI_TOKENS } from '../../utils/tokens/DI-tokens';
+
+@Injectable()
+export class WeatherService {
+  constructor (
+    @Inject(DI_TOKENS.WEATHER_API_CLIENT)
+    private readonly weatherApiClient: IWeatherApiClient,
+  ) {}
+
+  async getWeather (city: string) {
+    const data = await this.weatherApiClient.getWeatherData(city);
+
+    return {
+      temperature: data.current.temp_c,
+      humidity: data.current.humidity,
+      description: data.current.condition.text,
+    };
+  }
+}
