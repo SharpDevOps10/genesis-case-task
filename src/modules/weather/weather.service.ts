@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { IWeatherApiClient } from '../weather-api/interfaces/weather-api-client.interface';
 import { DI_TOKENS } from '../../utils/tokens/DI-tokens';
+import { GetWeatherResponse } from './responses/get-weather.response';
 
 @Injectable()
 export class WeatherService {
@@ -9,7 +10,7 @@ export class WeatherService {
     private readonly weatherApiClient: IWeatherApiClient,
   ) {}
 
-  async getWeather (city: string) {
+  async getWeather (city: string): Promise<GetWeatherResponse> {
     const data = await this.weatherApiClient.getWeatherData(city);
 
     return {
