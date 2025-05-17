@@ -18,6 +18,7 @@
       "@enums/*": ["enums/*"],
       "@database/*": ["database/*"],
       "@subscription/*": ["modules/subscription/*"],
+      "@email/*": ["modules/email/*"],
     },
     "incremental": true,
     "skipLibCheck": true,
