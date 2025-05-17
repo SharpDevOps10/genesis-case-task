@@ -28,4 +28,25 @@ export class SubscriptionRepository implements ISubscriptionRepository {
       },
     });
   }
+
+  async findByToken (token: string): Promise<Subscription> {
+    return this.prismaService.subscription.findFirst({
+      where: {
+        token,
+      },
+    });
+  }
+
+  async updateSubscription (id: string, data: Partial<Subscription>): Promise<void> {
+    await this.prismaService.subscription.update({
+      where: { id },
+      data,
+    });
+  }
+
+  async deleteSubscription (id: string): Promise<void> {
+    await this.prismaService.subscription.delete({
+      where: { id },
+    });
+  }
 }
