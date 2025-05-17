@@ -49,4 +49,10 @@ export class SubscriptionRepository implements ISubscriptionRepository {
       where: { id },
     });
   }
+
+  async getConfirmedSubscriptions (): Promise<Subscription[]> {
+    return this.prismaService.subscription.findMany({
+      where: { confirmed: true },
+    });
+  }
 }

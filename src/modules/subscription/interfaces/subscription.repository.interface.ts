@@ -7,4 +7,5 @@ export interface ISubscriptionRepository {
   findByToken (token: string): Promise<Subscription>;
   updateSubscription (id: string, data: Partial<Subscription>): Promise<void>;
   deleteSubscription (id: string): Promise<void>;
+  getConfirmedSubscriptions(): Promise<Subscription[]>;
 }

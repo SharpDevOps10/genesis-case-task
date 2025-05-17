@@ -6,9 +6,10 @@ import { randomUUID } from 'node:crypto';
 import { IEmailService } from '@email/interfaces/email-service.interface';
 import { isTokenExpired } from '@utils/date/is-token-expired';
 import { Subscription } from '@prisma/client';
+import { ISubscriptionService } from '@subscription/interfaces/subscription.service.interface';
 
 @Injectable()
-export class SubscriptionService {
+export class SubscriptionService implements ISubscriptionService {
   constructor (
     @Inject(DI_TOKENS.SUBSCRIPTION_REPOSITORY)
     private readonly subscriptionRepository: ISubscriptionRepository,
@@ -40,5 +41,9 @@ export class SubscriptionService {
     if (!subscription.confirmed) throw new ConflictException('Subscription not confirmed');
 
     await this.subscriptionRepository.deleteSubscription(subscription.id);
+  }
+
+  async getConfirmedSubscriptions (): Promise<Subscription[]> {
+    return this.subscriptionRepository.getConfirmedSubscriptions();
   }
 }

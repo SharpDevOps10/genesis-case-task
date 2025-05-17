@@ -2,9 +2,10 @@ import { Injectable, Inject } from '@nestjs/common';
 import { IWeatherApiClient } from '@weather-api/interfaces/weather-api-client.interface';
 import { DI_TOKENS } from '@utils/tokens/DI-tokens';
 import { GetWeatherResponse } from './responses/get-weather.response';
+import { IWeatherService } from './interfaces/weather.service.interface';
 
 @Injectable()
-export class WeatherService {
+export class WeatherService implements IWeatherService {
   constructor (
     @Inject(DI_TOKENS.WEATHER_API_CLIENT)
     private readonly weatherApiClient: IWeatherApiClient,
