@@ -19,6 +19,8 @@
       "@database/*": ["database/*"],
       "@subscription/*": ["modules/subscription/*"],
       "@email/*": ["modules/email/*"],
+      "@logger/*": ["modules/logger/*"],
+      "@notification/*": ["modules/notification/*"]
     },
     "incremental": true,
     "skipLibCheck": true,
