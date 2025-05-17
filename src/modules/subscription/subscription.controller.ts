@@ -1,13 +1,17 @@
-import { Body, Controller, Post, Param, Get } from '@nestjs/common';
-import { SubscriptionService } from './subscription.service';
+import { Body, Controller, Post, Param, Get, Inject } from '@nestjs/common';
 import { CreateSubscriptionDto } from './dto/create-subscription.dto';
 import { SubscriptionByTokenPipe } from '@utils/pipes/subscription-by-token.pipe';
 import { UUIDValidationPipe } from '@utils/pipes/uuid-validation.pipe';
 import { Subscription } from '@prisma/client';
+import { ISubscriptionService } from './interfaces/subscription.service.interface';
+import { DI_TOKENS } from '@utils/tokens/DI-tokens';
 
 @Controller()
 export class SubscriptionController {
-  constructor (private readonly subscriptionService: SubscriptionService) {}
+  constructor (
+    @Inject(DI_TOKENS.SUBSCRIPTION_SERVICE)
+    private readonly subscriptionService: ISubscriptionService,
+  ) {}
 
   @Post('subscribe')
   async subscribe (@Body() body: CreateSubscriptionDto): Promise<{ message: string }> {

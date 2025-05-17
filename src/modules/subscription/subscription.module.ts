@@ -11,13 +11,17 @@ import { WeatherModule } from '@weather/weather.module';
 @Module({
   controllers: [SubscriptionController],
   providers: [
-    SubscriptionService,
     IsCityValidConstraint,
     {
       provide: DI_TOKENS.SUBSCRIPTION_REPOSITORY,
       useClass: SubscriptionRepository,
     },
+    {
+      provide: DI_TOKENS.SUBSCRIPTION_SERVICE,
+      useClass: SubscriptionService,
+    },
   ],
   imports: [PrismaModule, EmailModule, WeatherModule],
+  exports: [DI_TOKENS.SUBSCRIPTION_SERVICE],
 })
 export class SubscriptionModule {}
