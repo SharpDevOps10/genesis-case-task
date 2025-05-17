@@ -7,7 +7,7 @@ export class SubscriptionController {
   constructor (private readonly subscriptionService: SubscriptionService) {}
 
   @Post()
-  async subscribe (@Body() body: CreateSubscriptionDto): Promise<void> {
+  async subscribe (@Body() body: CreateSubscriptionDto): Promise<{ message: string }> {
     return this.subscriptionService.subscribe(body);
   }
 }
