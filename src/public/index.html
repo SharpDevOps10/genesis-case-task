@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Subscribe to Weather Updates</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #dceeff, #f0faff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: 24px;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #0077cc;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Subscribe to Weather Updates</h1>
+    <form method="POST" action="/api/subscribe">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="you@example.com" required />
+
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" placeholder="e.g. Kyiv" required />
+
+        <label for="frequency">Frequency</label>
+        <select name="frequency" id="frequency" required>
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily</option>
+        </select>
+
+        <button type="submit">Subscribe</button>
+    </form>
+    <div class="footer">
+        You’ll receive a confirmation email after subscribing.
+    </div>
+</div>
+</body>
+</html>
