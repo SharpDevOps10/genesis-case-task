@@ -26,4 +26,4 @@ jobs:
       - name: Start migration
         run: npm run test:migrate
       - name: Run tests
-        run: npm run test:integration
+        run: npm run test
