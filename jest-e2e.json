@@ -1,0 +1,25 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": "./",
+  "testEnvironment": "node",
+  "testRegex": "test/.*\\.spec\\.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^@modules/(.*)$": "<rootDir>/src/modules/$1",
+    "^@weather-api/(.*)$": "<rootDir>/src/modules/weather-api/$1",
+    "^@weather/(.*)$": "<rootDir>/src/modules/weather/$1",
+    "^@utils/(.*)$": "<rootDir>/src/utils/$1",
+    "^@enums/(.*)$": "<rootDir>/src/enums/$1",
+    "^@database/(.*)$": "<rootDir>/src/database/$1",
+    "^@subscription/(.*)$": "<rootDir>/src/modules/subscription/$1",
+    "^@email/(.*)$": "<rootDir>/src/modules/email/$1",
+    "^@logger/(.*)$": "<rootDir>/src/modules/logger/$1",
+    "^@notification/(.*)$": "<rootDir>/src/modules/notification/$1"
+  }
+}
