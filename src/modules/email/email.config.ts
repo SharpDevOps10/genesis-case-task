@@ -15,7 +15,7 @@ export const emailConfig = {
     from: process.env.MAIL_FROM ?? process.env.SMTP_USER,
   },
   template: {
-    dir: join(process.cwd(), 'src', 'modules', 'email', 'templates'),
+    dir: join(process.cwd(), 'email', 'templates'),
     adapter: new HandlebarsAdapter(),
     options: {
       strict: true,
